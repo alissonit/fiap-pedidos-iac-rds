@@ -4,7 +4,7 @@ variable "region" {
 }
 
 variable "profile" {
-  default     = "05-sandbox"
+  default     = "fiap-env"
   description = "Profile to deploy the infrastructure"
 }
 
