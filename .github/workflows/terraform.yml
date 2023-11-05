@@ -25,18 +25,17 @@ jobs:
     - name: AWS config SSO
       run: |
         mkdir -p ~/.aws
-        echo "[profile 05-sandbox]
+        echo "[profile fiap-env]
         sso_start_url = ${{ secrets.SSO_START_URL }}
         sso_region = sa-east-1
         sso_account_id = ${{ secrets.ACCOUNT_ID }}
-        sso_role_name = SysOps
+        sso_role_name = ${{ secrets.SSO_ROLE_NAME }}
         region = sa-east-1
         output = json" > ~/.aws/config
-        cat ~/.aws/config
 
     - name: AWS login SSO
       run: |
-        aws sso login --profile 05-sandbox
+        aws sso login --profile fiap-env
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v3
